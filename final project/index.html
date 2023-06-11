@@ -1,29 +1,9 @@
 <html>
     <head>
         <title>ユチさんの二次元世界</title>
-         <script>
-    
-            funtion showClock(){
-                var todat = Date();
-                document.myForm.myField.value = today.toString();
-                setTimeout('showClock()",1000);}
-          </script>
-        <script>
-             var seconds = 0; minutes = 0;
-            document.Form.Time.value = "0";
-            function showStayTime(){
-                if(seconds >= 59){
-                    seconds = 0;
-                    minutes +=1;}
-                else seconds += 1;
-                document.Form.Time.value = minutes + ":" + seconds;
-                setTimeout("showStayTime()",100);}
-        </script>
+      
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script>
-            
-                 
-            
+        <script>   
             $("img").ready(function(){
                 alert("哈囉!歡迎來到我的宅宅世界~因為動漫很看個人喜好，所以麻煩你帶著尊重、包容的心慢慢瀏覽哦!謝謝你~~");});
         </script>
@@ -41,7 +21,7 @@
         </style>
     </head>
        
-    <body onload = "showClock(); showStayTime()">
+    <body>
         <header >
             <style>
                 header{font-family:"微軟正黑體";margin:1%}
@@ -80,12 +60,7 @@
         <p style ="text-align: center">ユチ</p>
         <p style ="text-align: left"> 就是個宅宅，每日在動漫坑裡和課業掙扎。不知為何期中期末總會掉進坑裡，然後再用肝來唸書。
             </p>         
-                <form name = "myform">
-                    <input type="text" name="myFirld">\
-            </form>
-                <form name = "Form">
-                    <input type="text" name="Time">
-            </form>
+  
         </aside>
 
         <main>
