@@ -6,6 +6,12 @@
             $(document).ready(function(){
                 alert("哈囉!歡迎來到我的宅宅世界~因為動漫很看個人喜好，所以麻煩你帶著尊重、包容的心慢慢瀏覽哦!謝謝你~~");});
         </script>
+        <script>
+            funtion showClock(){
+                var todat = Date();
+                document.mtForm.myField.value = today.toString();
+                setTimeout('showClock()",1000);}
+        </script>
         
         <style>
             body{background-color: rgb(255, 202, 132,0.7);}
@@ -19,7 +25,7 @@
         </style>
     </head>
        
-    <body>
+    <body onload = "showClock();">
         <header >
             <style>
                 header{font-family:"微軟正黑體";margin:1%}
@@ -51,13 +57,16 @@
                 .flex-nav {display: flex;justify-content: left;}
              </style>
         </nav>
-        <aside 
+        <aside>
             <p style= "clear: right; text-align: center">
             <h1>個人簡介</h1>
         <img src="person.jpg" height: "250" width= "250" style="display:block; margin:auto;"  > 
         <p style ="text-align: center">ユチ</p>
         <p style ="text-align: left"> 就是個宅宅，每日在動漫坑裡和課業掙扎。不知為何期中期末總會掉進坑裡，然後再用肝來唸書。
-            </p>
+            </p>         
+                <form name = "myform">
+                    <input type="text" name="myFirld">
+            </form>
         </aside>
 
         <main>
