@@ -34,6 +34,9 @@
             padding: 8px;
             box-sizing: border-box;
         }
+        input[type="range"] {
+            width: 100%;
+        }
         button {
             padding: 10px 15px;
             margin-right: 10px;
@@ -58,8 +61,13 @@
             <input type="text" id="name" name="name">
         </div>
         <div class="form-group">
-            <label for="rating">請選擇一個選項 (1 到 5)：</label>
-            <input type="range" id="rating" name="rating" min="1" max="5" step="1" oninput="this.nextElementSibling.value = this.value">
+            <label for="rating">請選擇一個選項 (1 到 10)：</label>
+            <input type="range" id="rating" name="rating" min="1" max="10" step="1" oninput="this.nextElementSibling.value = this.value">
+            <output>5</output>
+        </div>
+        <div class="form-group">
+            <label for="second-rating">請選擇另一個選項 (1 到 5)：</label>
+            <input type="range" id="second-rating" name="second-rating" min="1" max="5" step="1" style="background-color: #ff6347;" oninput="this.nextElementSibling.value = this.value">
             <output>3</output>
         </div>
         <button type="button" onclick="handleSubmit()">提交</button>
@@ -70,9 +78,11 @@
         function handleSubmit() {
             const name = document.getElementById('name').value;
             const rating = document.getElementById('rating').value;
-            if(name && rating) {
+            const secondRating = document.getElementById('second-rating').value;
+            if(name && rating && secondRating) {
                 console.log('Name:', name);
                 console.log('Rating:', rating);
+                console.log('Second Rating:', secondRating);
                 // Here you can add code to send data to the backend
                 alert('資料已提交');
             } else {
@@ -82,8 +92,10 @@
 
         function handleReset() {
             document.getElementById('name').value = '';
-            document.getElementById('rating').value = 3;
-            document.querySelector('output').value = 3;
+            document.getElementById('rating').value = 5;
+            document.querySelector('#rating + output').value = 5;
+            document.getElementById('second-rating').value = 3;
+            document.querySelector('#second-rating + output').value = 3;
         }
     </script>
 </body>
