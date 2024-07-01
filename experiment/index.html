@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人資料填寫</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:disabled {
+            background-color: #ccc;
+        }
+        button:last-child {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-group">
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="rating">請選擇一個選項 (1 到 5)：</label>
+            <input type="range" id="rating" name="rating" min="1" max="5" step="1" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+        </div>
+        <button type="button" onclick="handleSubmit()">提交</button>
+        <button type="button" onclick="handleReset()">重設</button>
+    </div>
+
+    <script>
+        function handleSubmit() {
+            const name = document.getElementById('name').value;
+            const rating = document.getElementById('rating').value;
+            if(name && rating) {
+                console.log('Name:', name);
+                console.log('Rating:', rating);
+                // Here you can add code to send data to the backend
+                alert('資料已提交');
+            } else {
+                alert('請填寫所有欄位');
+            }
+        }
+
+        function handleReset() {
+            document.getElementById('name').value = '';
+            document.getElementById('rating').value = 3;
+            document.querySelector('output').value = 3;
+        }
+    </script>
+</body>
+</html>
