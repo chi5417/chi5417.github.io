@@ -38,9 +38,10 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const data = JSON.parse(localStorage.getItem('formData'));
-            if (data) {
-                const tableBody = document.getElementById('dataBody');
+            const allData = JSON.parse(localStorage.getItem('formData')) || [];
+            const tableBody = document.getElementById('dataBody');
+            
+            allData.forEach(data => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${data.id}</td>
@@ -48,7 +49,7 @@
                     <td>${data.scale2}</td>
                 `;
                 tableBody.appendChild(row);
-            }
+            });
         });
     </script>
 </body>
