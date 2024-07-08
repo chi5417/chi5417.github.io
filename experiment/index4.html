@@ -7,38 +7,75 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            color: black;
-            margin: 20px;
+            background-color: #f4f4f4;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff2cb;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .form-group {
+            margin-bottom: 15px;
         }
         label {
             display: block;
-            margin: 10px 0 5px;
+            margin-bottom: 5px;
         }
-        input, select {
-            margin-bottom: 20px;
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        input[type="range"] {
+            width: 100%;
         }
         button {
+            padding: 10px 15px;
             margin-right: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:disabled {
+            background-color: #ccc;
+        }
+        button:last-child {
+            background-color: #dc3545;
         }
     </style>
 </head>
 <body>
-    <h1>個人資料收集</h1>
-    <form id="dataForm">
-        <label for="id">編號：</label>
-        <input type="text" id="id" name="id" required>
-        
-        <label for="scale1">評分1（1到10）：</label>
-        <input type="range" id="scale1" name="scale1" min="1" max="10" step="1" value="5" oninput="document.getElementById('scale1Value').innerText = this.value">
-        <span id="scale1Value">5</span>
-        
-        <label for="scale2">評分2（1到5）：</label>
-        <input type="range" id="scale2" name="scale2" min="1" max="5" step="1" value="3" oninput="document.getElementById('scale2Value').innerText = this.value">
-        <span id="scale2Value">3</span>
-        
-        <button type="button" onclick="handleSubmit()">提交</button>
-        <button type="reset">重設</button>
-    </form>
+    <div class="container">
+        <h1>個人資料收集</h1>
+        <form id="dataForm">
+            <div class="form-group">
+                <label for="id">編號：</label>
+                <input type="text" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="scale1">評分1（1到10）：</label>
+                <input type="range" id="scale1" name="scale1" min="1" max="10" step="1" value="5" oninput="document.getElementById('scale1Value').innerText = this.value">
+                <span id="scale1Value">5</span>
+            </div>
+            <div class="form-group">
+                <label for="scale2">評分2（1到5）：</label>
+                <input type="range" id="scale2" name="scale2" min="1" max="5" step="1" value="3" oninput="document.getElementById('scale2Value').innerText = this.value">
+                <span id="scale2Value">3</span>
+            </div>
+            <button type="button" onclick="handleSubmit()">提交</button>
+            <button type="reset">重設</button>
+        </form>
+    </div>
 
     <script>
         function handleSubmit() {
