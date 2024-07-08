@@ -38,9 +38,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const allData = JSON.parse(localStorage.getItem('formData')) || [];
+            const allData = JSON.parse(localStorage.getItem('allFormData')) || [];
             const tableBody = document.getElementById('dataBody');
-            
             allData.forEach(data => {
                 const row = document.createElement('tr');
                 row.innerHTML = `

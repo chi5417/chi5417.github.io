@@ -52,12 +52,17 @@
                 scale2: scale2
             };
             
-            // 從本地存儲中讀取現有數據
-            let allData = JSON.parse(localStorage.getItem('formData')) || [];
+            console.log('提交的數據：', data);
+
+            // 從本地存儲中讀取現有的數據數組
+            let allData = JSON.parse(localStorage.getItem('allFormData')) || [];
+            
+            // 將新數據添加到數組中
             allData.push(data);
             
-            // 將更新後的數據陣列存儲到本地存儲
-            localStorage.setItem('formData', JSON.stringify(allData));
+            // 更新本地存儲
+            localStorage.setItem('allFormData', JSON.stringify(allData));
+            
             alert('資料已提交');
         }
     </script>
