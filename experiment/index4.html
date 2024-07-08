@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人資料收集</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: black;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            margin-bottom: 20px;
+        }
+        button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>個人資料收集</h1>
+    <form id="dataForm">
+        <label for="id">編號：</label>
+        <input type="text" id="id" name="id" required>
+        
+        <label for="scale1">評分1（1到10）：</label>
+        <input type="range" id="scale1" name="scale1" min="1" max="10" step="1" value="5" oninput="document.getElementById('scale1Value').innerText = this.value">
+        <span id="scale1Value">5</span>
+        
+        <label for="scale2">評分2（1到5）：</label>
+        <input type="range" id="scale2" name="scale2" min="1" max="5" step="1" value="3" oninput="document.getElementById('scale2Value').innerText = this.value">
+        <span id="scale2Value">3</span>
+        
+        <button type="button" onclick="handleSubmit()">提交</button>
+        <button type="reset">重設</button>
+    </form>
+
+    <script>
+        function handleSubmit() {
+            const id = document.getElementById('id').value;
+            const scale1 = document.getElementById('scale1').value;
+            const scale2 = document.getElementById('scale2').value;
+            
+            const data = {
+                id: id,
+                scale1: scale1,
+                scale2: scale2
+            };
+            
+            console.log('提交的數據：', data);
+            localStorage.setItem('formData', JSON.stringify(data));
+            alert('資料已提交');
+            window.location.href = 'backend.html';
+        }
+    </script>
+</body>
+</html>
