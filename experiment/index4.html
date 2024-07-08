@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人資料收集</title>
+    <title>噪音攻擊</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -67,12 +67,12 @@
                 <input type="text" id="id" name="id" required>
             </div>
             <div class="form-group">
-                <label for="scale1">評分1（1到10）：</label>
+                <label for="scale1">給予對方的噪音強度（1到10）：</label>
                 <input type="range" id="scale1" name="scale1" min="1" max="10" step="1" value="5" oninput="document.getElementById('scale1Value').innerText = this.value">
                 <span id="scale1Value">5</span>
             </div>
             <div class="form-group">
-                <label for="scale2">評分2（1到5）：</label>
+                <label for="scale2">噪音持續幾秒（1到5）：</label>
                 <input type="range" id="scale2" name="scale2" min="1" max="5" step="1" value="3" oninput="document.getElementById('scale2Value').innerText = this.value">
                 <span id="scale2Value">3</span>
             </div>
