@@ -21,9 +21,15 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             width: 300px;
+            text-align: center;
         }
         .form-group {
             margin-bottom: 15px;
+        }
+        .info-text {
+            text-align: left;
+            margin-bottom: 15px;
+            font-size: 0.9em;
         }
         label {
             display: block;
@@ -56,15 +62,23 @@
         button:last-child {
             background-color: #dc3545;
         }
+        h1 {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align: center;">噪音攻擊</h1>
+        <h1 onclick="playAudio()">噪音攻擊</h1>
         <form id="dataForm">
             <div class="form-group">
-                <label for="id">編號：</label>
+                <label for="id">實驗參與者編號：</label>
                 <input type="text" id="id" name="id" required>
+            </div>
+            <div class="info-text">
+                噪音強度1：極輕微噪音（對人體無害）<br>
+                噪音強度5：如音檔所示<br>
+                噪音強度10：極吵雜噪音（會造成暫時性失聰及嚴重頭暈）
             </div>
             <div class="form-group">
                 <label for="scale1">給予對方的噪音強度（1到10）：</label>
@@ -72,7 +86,7 @@
                 <span id="scale1Value">5</span>
             </div>
             <div class="form-group">
-                <label for="scale2">噪音持續幾秒（1到5）：</label>
+                <label for="scale2">想使噪音持續幾秒（1到5）：</label>
                 <input type="range" id="scale2" name="scale2" min="1" max="5" step="1" value="3" oninput="document.getElementById('scale2Value').innerText = this.value">
                 <span id="scale2Value">3</span>
             </div>
@@ -83,7 +97,14 @@
         </form>
     </div>
 
+    <audio id="noiseAudio" src="path/to/your/audio/file.mp3" preload="auto"></audio>
+
     <script>
+        function playAudio() {
+            const audio = document.getElementById('noiseAudio');
+            audio.play();
+        }
+
         function handleSubmit() {
             const id = document.getElementById('id').value;
             const scale1 = document.getElementById('scale1').value;
