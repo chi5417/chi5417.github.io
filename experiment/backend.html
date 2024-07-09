@@ -13,11 +13,23 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
         th, td {
             border: 1px solid black;
             padding: 10px;
             text-align: left;
+        }
+        .button-group {
+            text-align: center;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #dc3545;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -35,6 +47,9 @@
             <!-- 數據將顯示在這裡 -->
         </tbody>
     </table>
+    <div class="button-group">
+        <button onclick="clearData()">清除所有數據</button>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -50,6 +65,12 @@
                 tableBody.appendChild(row);
             });
         });
+
+        function clearData() {
+            localStorage.removeItem('allFormData');
+            document.getElementById('dataBody').innerHTML = '';
+            alert('所有數據已清除');
+        }
     </script>
 </body>
 </html>
