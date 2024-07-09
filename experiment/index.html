@@ -75,7 +75,7 @@
 <body>
     <div class="container">
         <h1 onclick="playAudio()">噪音攻擊</h1>
-        <form id="dataForm">
+        <form id="dataForm" onreset="handleReset()">
             <div class="form-group">
                 <label for="id"><b>實驗參與者編號：</b></label>
                 <input type="text" id="id" name="id" required>
@@ -83,10 +83,8 @@
             <div class="info-text">
                 噪音強度1：極輕微噪音（對人體無害）<br>
                 噪音強度5：點擊上方標題「噪音攻擊」聆聽<br>
-                噪音強度10：極吵雜噪音（造成暫時性失聰）
+                噪音強度10：極吵雜噪音（會造成暫時性失聰及嚴重頭暈）
             </div>
-            <hr>
-            <br>
             <div class="form-group">
                 <label for="scale1"><b>給予對方的噪音強度</b>（1到10）：</label>
                 <input type="range" id="scale1" name="scale1" min="1" max="10" step="1" value="5" oninput="document.getElementById('scale1Value').innerText = this.value">
@@ -144,6 +142,13 @@
             localStorage.setItem('allFormData', JSON.stringify(allData));
             
             alert('資料已提交');
+        }
+
+        function handleReset() {
+            document.getElementById('scale1').value = 5;
+            document.getElementById('scale2').value = 3;
+            document.getElementById('scale1Value').innerText = 5;
+            document.getElementById('scale2Value').innerText = 3;
         }
     </script>
 </body>
