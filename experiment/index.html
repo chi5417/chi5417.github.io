@@ -29,7 +29,7 @@
         .info-text {
             text-align: left;
             margin-bottom: 15px;
-            font-size: 0.7em;
+            font-size: 0.8em;
         }
         label {
             display: block;
@@ -76,7 +76,7 @@
         <h1 onclick="playAudio()">噪音攻擊</h1>
         <form id="dataForm">
             <div class="form-group">
-                <label for="id">實驗參與者編號：</label>
+                <label for="id"><b>實驗參與者編號：</b></label>
                 <input type="text" id="id" name="id" required>
             </div>
             <div class="info-text">
@@ -86,12 +86,12 @@
             </div>
             <hr>
             <div class="form-group">
-                <label for="scale1">給予對方的噪音強度（1到10）：</label>
+                <label for="scale1"><b>給予對方的噪音強度</b>（1到10）：</label>
                 <input type="range" id="scale1" name="scale1" min="1" max="10" step="1" value="5" oninput="document.getElementById('scale1Value').innerText = this.value">
                 <span id="scale1Value">5</span>
             </div>
             <div class="form-group">
-                <label for="scale2">想使噪音持續幾秒（1到5）：</label>
+                <label for="scale2"><b>想使噪音持續幾秒</b>（1到5）：</label>
                 <input type="range" id="scale2" name="scale2" min="1" max="5" step="1" value="3" oninput="document.getElementById('scale2Value').innerText = this.value">
                 <span id="scale2Value">3</span>
             </div>
