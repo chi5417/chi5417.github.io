@@ -124,10 +124,12 @@
 
             errorMessage.style.display = 'none';
             
+            const currentDate = new Date();
             const data = {
                 id: id,
                 scale1: scale1,
-                scale2: scale2
+                scale2: scale2,
+                timestamp: currentDate.toLocaleString()
             };
             
             console.log('提交的數據：', data);

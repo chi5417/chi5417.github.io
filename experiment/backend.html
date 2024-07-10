@@ -41,6 +41,7 @@
                 <th>實驗參與者編號</th>
                 <th>噪音攻擊強度</th>
                 <th>噪音攻擊秒數</th>
+                <th>提交時間</th>
             </tr>
         </thead>
         <tbody id="dataBody">
@@ -61,6 +62,7 @@
                     <td>${data.id}</td>
                     <td>${data.scale1}</td>
                     <td>${data.scale2}</td>
+                    <td>${data.timestamp}</td>
                 `;
                 tableBody.appendChild(row);
             });
